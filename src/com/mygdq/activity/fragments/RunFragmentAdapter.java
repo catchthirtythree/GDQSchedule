@@ -7,6 +7,7 @@ import java.util.Date;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
@@ -44,27 +45,9 @@ public abstract class RunFragmentAdapter extends Fragment implements SwipeRefres
 	@Override public void onRefresh() {
 	    new Handler().postDelayed(new Runnable() {
 	        @Override public void run() {
-	        	try {
-					GDQScraper.updateDatabase(getActivity());
-				} catch (IOException e) {
-					// This shouldn't thrown unless something weird happened when querying the site.
-					// Counts as a connection issue and should go into else by default.
-					System.exit(0);
-				} catch (ParseException e) {
-					// This shouldn't be thrown unless GDQ changes the way they display their date modified.
-				}
-	            
-	            // Start activity or redraw fragment.
-		        // Create an intent to send the user to the MyGdqActiity.
-				Intent intent = new Intent(getActivity(), GDQScheduleActivity.class);
-				
-				// Fire the intent.
-				RunFragmentAdapter.this.startActivity(intent);
-	        	
-				// Stop refreshing.
-	            swipeLayout.setRefreshing(false);
+	        	new UpdateDatabaseTask().execute();
 	        }
-	    }, 1000);
+	    }, 4000);
 	}
 
 	/**
@@ -120,5 +103,34 @@ public abstract class RunFragmentAdapter extends Fragment implements SwipeRefres
 		}
 		
 		return runView;
+	}
+	
+	private class UpdateDatabaseTask extends AsyncTask<Void, Void, Void> {
+		@Override protected void onPreExecute() {}
+
+		@Override protected Void doInBackground(Void... params) {
+			try {
+				GDQScraper.updateDatabase(getActivity());
+			} catch (IOException e) {
+				// This shouldn't thrown unless something weird happened when querying the site.
+				// This will count as a connection issue and we will ignore it.
+			} catch (ParseException e) {
+				// This shouldn't be thrown unless GDQ changes the way they display their date modified.
+			}
+			
+			return null;
+		}
+
+		@Override protected void onPostExecute(Void result) {
+			// Start activity or redraw fragment.
+	        // Create an intent to send the user to the MyGdqActiity.
+			Intent intent = new Intent(getActivity(), GDQScheduleActivity.class);
+			
+			// Fire the intent.
+			RunFragmentAdapter.this.startActivity(intent);
+        	
+			// Stop refreshing.
+            swipeLayout.setRefreshing(false);
+		}
 	}
 }

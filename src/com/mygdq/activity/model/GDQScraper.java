@@ -111,11 +111,15 @@ public class GDQScraper {
 	 * @return
 	 * @throws MalformedURLException
 	 * @throws IOException
+	 * @throws ParseException 
 	 */
-	public static Document scrape() throws MalformedURLException, IOException {
+	public static Document scrape(Context context) throws MalformedURLException, IOException, ParseException {
 		if (doc == null) {
-			// Scrape the GDQ website.
 			doc = Jsoup.parse(Util.getHtmlFrom(URL_SGDQ));
+		} else {
+			if (hasSiteUpdated(context)) {
+				doc = Jsoup.parse(Util.getHtmlFrom(URL_SGDQ));
+			}
 		}
 		
 		return doc;
@@ -130,25 +134,23 @@ public class GDQScraper {
 	 */
 	public static void updateDatabase(Context context) throws MalformedURLException, IOException, ParseException {
 		// Scrape the GDQ site.
-		scrape();
+		scrape(context);
 		
-		if (hasSiteUpdated(context)) {
-			// Get the list of runs from the scraper.
-			runs = findListOfRuns();
+		// Get the list of runs from the scraper.
+		runs = findListOfRuns();
+		
+		// Update the table.
+		// TODO: Update table by not deleting everything.
+		try (DBMapperAdapter mapper = new RunMapper(context)) {
+			// Truncate the table.
+			((RunMapper) mapper).truncateTable();
 			
-			// Update the table.
-			// TODO: Update table by not deleting everything.
-			try (DBMapperAdapter mapper = new RunMapper(context)) {
-				// Truncate the table.
-				((RunMapper) mapper).truncateTable();
-				
-				// Insert runs into table.
-				for (Run run : runs) {
-					((RunMapper) mapper).insert(run);
-				}
-			} catch (Exception e) { 
-				/* Autocloseable requires a catch. */ 
+			// Insert runs into table.
+			for (Run run : runs) {
+				((RunMapper) mapper).insert(run);
 			}
+		} catch (Exception e) { 
+			/* Autocloseable requires a catch. */ 
 		}
 	}
 }

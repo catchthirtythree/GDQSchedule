@@ -36,10 +36,10 @@ public class SplashActivity extends Activity {
 		setContentView(R.layout.splash);
 
 		// Initialize and start the loading process.
-		new LoadViewTask().execute();
+		new SetupDatabaseTask().execute();
 	}
 
-	private class LoadViewTask extends AsyncTask<Void, Progress, List<Run>> {
+	private class SetupDatabaseTask extends AsyncTask<Void, Progress, List<Run>> {
 		@Override protected void onPreExecute() {
 			// Create a new progress dialog
 			progressDialog = new ProgressDialog(SplashActivity.this);
@@ -71,7 +71,7 @@ public class SplashActivity extends Activity {
 							|| Util.haveNetworkConnection(SplashActivity.this, Util.NetworkType.WIFI)) {
 						// Scrape the website.
 						publishProgress(Progress.SCRAPING);
-						GDQScraper.scrape();
+						GDQScraper.scrape(SplashActivity.this);
 
 						// Update the database.
 						publishProgress(Progress.UPDATING_DATABASE);
@@ -84,12 +84,10 @@ public class SplashActivity extends Activity {
 				}
 			} catch (MalformedURLException e) {
 				// This shouldn't thrown unless the url is changed or the site goes down.
-				// Counts as a connection issue and should go into else by default.
-				System.exit(0);
+				// This will count as a connection issue and we will ignore it.
 			} catch (IOException e) {
 				// This shouldn't thrown unless something weird happened when querying the site.
-				// Counts as a connection issue and should go into else by default.
-				System.exit(0);
+				// This will count as a connection issue and we will ignore it.
 			} catch (ParseException e) {
 				// This shouldn't be thrown unless GDQ changes the way they display their date modified.
 			}
