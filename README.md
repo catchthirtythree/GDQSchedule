@@ -8,6 +8,7 @@ Scrapes the GDQ Schedule page (https://gamesdonequick.com/schedule) and makes an
 - Settings page
 - Links to relevant websites
 - Links to twitch vods?
+- Remove the lazy truncate table and find a better way to update the table
 
 ## Installation
 
