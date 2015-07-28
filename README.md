@@ -10,6 +10,8 @@ Scrapes the GDQ Schedule page (https://gamesdonequick.com/schedule) and makes an
 - Links to twitch vods?
 - Remove the lazy truncate table and find a better way to update the table
 - Searching
+- Better font for action bar
+- App/action bar styling
 
 ## Installation
 
