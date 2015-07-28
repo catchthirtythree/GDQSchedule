@@ -1,0 +1,23 @@
+<TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/calendar_row"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/daterow" >
+
+    <ImageView
+        android:id="@+id/calendar_image"
+        android:layout_width="@dimen/row_medium_image_size"
+	    android:layout_height="@dimen/row_medium_image_size"
+        android:layout_gravity="start"
+        android:padding="4dp"
+        android:contentDescription="@string/calendar_desc"
+        android:src="@drawable/calendar" />
+
+    <TextView
+        android:id="@+id/calendar_text"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="start|center_vertical"
+        android:textSize="@dimen/row_medium_text_size" />
+
+</TableRow>

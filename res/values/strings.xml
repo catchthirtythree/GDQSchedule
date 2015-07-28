@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">GDQ Schedule</string>
+    <string name="title_section1">Upcoming Runs</string>
+    <string name="title_section2">Previous Runs</string>
+    <string name="action_settings">Settings</string>
+    <string name="calendar_desc">Calendar Picture</string>
+    <string name="gdq_logo_desc">GDQ Logo Picture</string>
+    <string name="clock_desc">Clock Picture</string>
+    <string name="runner_desc">Runner Logo Picture</string>
+    <string name="couch_desc">Couch Logo Picture</string>
+    <string name="game_desc">Game Logo Picture</string>
+    <string name="empty_space_desc">Empty Space</string>
+</resources>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/runrow_dark" >
+
+	<ImageView
+	    android:id="@+id/view"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:layout_marginBottom="80dp"
+	    android:contentDescription="@string/gdq_logo_desc"
+	    android:shrinkColumns="*"
+	    android:src="@drawable/gdqlogo" />
+
+</FrameLayout>

@@ -1,0 +1,129 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/run_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/runrow_dark"
+    android:orientation="vertical" >
+    
+    <TableRow
+        android:id="@+id/run_time_row"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+	    <ImageView
+	        android:id="@+id/run_clock"
+	        android:layout_width="@dimen/row_large_image_size"
+	        android:layout_height="@dimen/row_large_image_size"
+	        android:layout_gravity="start"
+	        android:padding="@dimen/row_large_padding_size"
+	        android:contentDescription="@string/clock_desc"
+	        android:src="@drawable/clock_dark" />
+
+	    <TextView
+	        android:id="@+id/run_time_text"
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:gravity="start|center_vertical"
+	        android:text="1:00PM"
+	        android:textSize="@dimen/row_large_text_size"
+            android:textColor="#FFFFFF" />
+ 
+	</TableRow>
+
+    <TableRow
+        android:id="@+id/run_info_row"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <ImageView
+            android:id="@+id/run_space"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:contentDescription="@string/empty_space_desc"
+            android:padding="@dimen/row_large_padding_size" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TableRow
+                android:id="@+id/run_game"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <ImageView
+                    android:id="@+id/run_game_image"
+                    android:layout_width="@dimen/row_small_image_size"
+                    android:layout_height="@dimen/row_small_image_size"
+                    android:contentDescription="@string/game_desc"
+                    android:src="@drawable/game_dark"
+       				android:padding="@dimen/row_medium_padding_size" />
+
+                <TextView
+                    android:id="@+id/run_game_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="3dp"
+                    android:gravity="start|center_vertical"
+                    android:text="Super Mario World 2: Yoshi&apos;s Island"
+                    android:textSize="@dimen/row_small_text_size"
+                    android:textColor="#FFFFFF" />
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/run_runner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <ImageView
+                    android:id="@+id/run_runber_image"
+                    android:layout_width="@dimen/row_small_image_size"
+                    android:layout_height="@dimen/row_small_image_size"
+                    android:contentDescription="@string/runner_desc"
+                    android:src="@drawable/runner_dark"
+       				android:padding="@dimen/row_medium_padding_size" />
+
+                <TextView
+                    android:id="@+id/run_runner_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="3dp"
+                    android:gravity="start|center_vertical"
+                    android:text="TriHex"
+                    android:textSize="@dimen/row_small_text_size"
+                    android:textColor="#FFFFFF" />
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/run_couch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <ImageView
+                    android:id="@+id/run_couch_image"
+                    android:layout_width="@dimen/row_small_image_size"
+                    android:layout_height="@dimen/row_small_image_size"
+                    android:contentDescription="@string/couch_desc"
+                    android:src="@drawable/couch_dark"
+       				android:padding="@dimen/row_medium_padding_size" />
+
+                <TextView
+                    android:id="@+id/run_couch_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="3dp"
+                    android:gravity="start|center_vertical"
+                    android:text="Eazinn, Garrison, NewAgeRetroHippie"
+                    android:textSize="@dimen/row_small_text_size"
+                    android:textColor="#FFFFFF" />
+
+            </TableRow>
+
+        </LinearLayout>
+
+    </TableRow>
+    
+</LinearLayout>
