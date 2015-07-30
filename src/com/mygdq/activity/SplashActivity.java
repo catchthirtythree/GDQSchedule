@@ -1,8 +1,8 @@
 package com.mygdq.activity;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Activity;
@@ -82,14 +82,15 @@ public class SplashActivity extends Activity {
 					publishProgress(Progress.RETRIEVING_RUNS);
 					runs = GDQScraper.getRuns(SplashActivity.this);
 				}
-			} catch (MalformedURLException e) {
-				// This shouldn't thrown unless the url is changed or the site goes down.
-				// This will count as a connection issue and we will ignore it.
-			} catch (IOException e) {
-				// This shouldn't thrown unless something weird happened when querying the site.
-				// This will count as a connection issue and we will ignore it.
-			} catch (ParseException e) {
-				// This shouldn't be thrown unless GDQ changes the way they display their date modified.
+			} catch (IOException | ParseException e) {
+				/* IOException:
+				 * This shouldn't thrown unless the url is changed or the site goes down.
+				 * This will count as a connection issue and we will ignore it.
+				 * 
+				 * ParseException:
+				 * This shouldn't be thrown unless GDQ changes the way they display their date modified.
+				 */
+				runs = new ArrayList<Run>();
 			}
 			
 			return runs;
