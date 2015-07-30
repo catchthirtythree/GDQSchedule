@@ -43,11 +43,11 @@ public abstract class RunFragmentAdapter extends Fragment implements SwipeRefres
 	@Override public abstract View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState);
 	
 	@Override public void onRefresh() {
-	    new Handler().postDelayed(new Runnable() {
+	    new Handler().post(new Runnable() {
 	        @Override public void run() {
 	        	new UpdateDatabaseTask().execute();
 	        }
-	    }, 4000);
+	    });
 	}
 
 	/**
