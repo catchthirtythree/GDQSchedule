@@ -2,6 +2,10 @@
 ## GDQ Schedule for Android
 Scrapes the GDQ Schedule page (https://gamesdonequick.com/schedule) and makes an okay looking table out of it.
 
+## Bugs:
+- Doesn't work offline (OutOfMemory errors during SplashActivity)
+- Sometimes reverses the order of the run lists
+
 ## To-do:
 - General run info table tweaks
 - Run reminder (alarm)
