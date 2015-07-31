@@ -4,9 +4,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.Locale;
 
 import org.jsoup.Jsoup;
@@ -32,14 +30,14 @@ public class GDQScraper {
 	private static final String URL_SGDQ = "https://gamesdonequick.com/schedule";
 
 	private static Document doc;
-	private static List<Run> runs;
+	private static Run[] runs;
 	
 	/**
 	 * Find all the runs from the database.
 	 * @param context
 	 * @return
 	 */
-	public static List<Run> getRuns(Context context) {
+	public static Run[] getRuns(Context context) {
 		if (runs == null) {
 			try (DBMapperAdapter mapper = new RunMapper(context)) {
 				runs = ((RunMapper) mapper).findAll();
@@ -72,17 +70,20 @@ public class GDQScraper {
 	 * @return
 	 * @throws ParseException
 	 */
-	@SuppressWarnings("serial") private static List<Run> findListOfRuns() throws ParseException {
-		return new ArrayList<Run>() {{
-			/* Get run table from document (store in phone's db) */ 
-	        Element table = doc.getElementById("runTable");
-	        Elements rows = table.getElementsByTag("tr");
-	        
-	        /* For each row, store list of td elements in Run object */
-			for (Element row : rows) {
-				add(new Run(row.getElementsByTag("td")));
-			}
-		}};
+	private static Run[] findListOfRuns() throws ParseException {
+		Run[] runs;
+		
+		/* Get run table from document (store in phone's db) */ 
+        Element table = doc.getElementById("runTable");
+        Elements rows = table.getElementsByTag("tr");
+        
+        runs = new Run[rows.size()];
+        /* For each row, store list of td elements in Run object */
+		for (int i = 0; i < rows.size(); ++i) {
+			runs[i] = new Run(rows.get(i).getElementsByTag("td"));
+		}
+		
+		return runs;
 	}
 	
 	/**

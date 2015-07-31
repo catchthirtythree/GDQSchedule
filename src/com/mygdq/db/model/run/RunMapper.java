@@ -37,11 +37,14 @@ public class RunMapper extends DBMapperAdapter {
 	 * Find all runs.
 	 * @return
 	 */
-	public List<Run> findAll() {
-		List<Run> runs = new ArrayList<Run>();
+	public Run[] findAll() {
+		Run[] runs = null;
 		
 		try (Cursor cursor = ((RunDataSource) database).findAll()) {
 			cursor.moveToFirst();
+			runs = new Run[cursor.getCount()];
+			
+			int index = 0;
 			while (!cursor.isAfterLast()) {
 				Run run = new Run();
 				run.setId(cursor.getLong(0));
@@ -55,9 +58,12 @@ public class RunMapper extends DBMapperAdapter {
 				run.setCommentators(cursor.getString(8));
 				run.setPrizes(cursor.getString(9));
 				run.setChannels(cursor.getString(10));
+				cursor.moveToNext();
 				
-				runs.add(run);
+				runs[index++] = run;
 			}
+		} catch (Exception e) {
+			runs = new Run[0];
 		}
 		
 		return runs;

@@ -105,6 +105,18 @@ public class Util {
 	}
 	
 	/**
+	 * Reverse an array.
+	 * @param a
+	 */
+	public static <T> void reverse(T[] a) {
+		for(int i = 0; i < a.length / 2; i++) {
+		    T temp = a[i];
+		    a[i] = a[a.length - i - 1];
+		    a[a.length - i - 1] = temp;
+		}
+	}
+	
+	/**
 	 * Change the default font for the application.
 	 * @param context
 	 * @param staticTypefaceFieldName
@@ -129,13 +141,19 @@ public class Util {
 	 * @return
 	 * @throws IOException
 	 */
-	public static boolean testNetworkConnection(int timeout) throws IOException {
-		HttpURLConnection connection = (HttpURLConnection) new URL(URL).openConnection();
-		connection.setRequestMethod("HEAD");
-		connection.setConnectTimeout(timeout);
-		connection.setReadTimeout(timeout);
-		connection.connect();
-		int responseCode = connection.getResponseCode();
-		return responseCode == 200;
+	public static boolean testNetworkConnection(int timeout) {
+		try {
+			HttpURLConnection connection = (HttpURLConnection) new URL(URL).openConnection();
+			if (connection == null) return false;
+			connection.setRequestMethod("HEAD");
+			connection.setConnectTimeout(timeout);
+			connection.setReadTimeout(timeout);
+			connection.connect();
+			
+			int responseCode = connection.getResponseCode();
+			return responseCode == 200;
+		} catch (IOException e) {
+			return false;
+		}
 	}
 }

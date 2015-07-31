@@ -2,7 +2,6 @@ package com.mygdq.activity.fragments;
 
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 
 import android.app.ActionBar.LayoutParams;
 import android.os.Bundle;
@@ -50,7 +49,7 @@ public class UpcomingRunsFragment extends RunFragmentAdapter {
 
 		Date calendar = null;
 		Date now = new Date();
-		List<Run> runs = GDQScraper.getRuns(getActivity());
+		Run[] runs = GDQScraper.getRuns(getActivity());
 		
 		// Retrieve the list of runs sent in when a new instance is made.
 		int index = 0;

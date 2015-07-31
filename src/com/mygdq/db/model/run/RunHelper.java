@@ -25,7 +25,7 @@ public class RunHelper extends SQLiteOpenHelper {
 	static final String DATABASE_NAME = TABLE_NAME + ".db";
 	static final int DATABASE_VERSION = 1;
 
-	static final String DATABASE_CREATE = "create table " + TABLE_NAME + "(" 
+	static final String DATABASE_CREATE = "create table if not exists " + TABLE_NAME + "(" 
 			+ COLUMN_ID 	+ " integer primary key autoincrement, " 
 			+ COLUMN_DATE + " timestamp not null, "
 			+ COLUMN_GAME + " char(255) not null, "

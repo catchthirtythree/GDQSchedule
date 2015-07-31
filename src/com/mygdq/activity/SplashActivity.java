@@ -2,8 +2,6 @@ package com.mygdq.activity;
 
 import java.io.IOException;
 import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.List;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -39,7 +37,7 @@ public class SplashActivity extends Activity {
 		new SetupDatabaseTask().execute();
 	}
 
-	private class SetupDatabaseTask extends AsyncTask<Void, Progress, List<Run>> {
+	private class SetupDatabaseTask extends AsyncTask<Void, Progress, Run[]> {
 		@Override protected void onPreExecute() {
 			// Create a new progress dialog
 			progressDialog = new ProgressDialog(SplashActivity.this);
@@ -57,9 +55,9 @@ public class SplashActivity extends Activity {
 			progressDialog.show();
 		}
 
-		@Override protected List<Run> doInBackground(Void... params) {
+		@Override protected Run[] doInBackground(Void... params) {
 			// Create the list of runs that will be sent to the onPostExecute method.
-			List<Run> runs = null;
+			Run[] runs = null;
 			
 			try {
 				synchronized (this) {
@@ -90,7 +88,7 @@ public class SplashActivity extends Activity {
 				 * ParseException:
 				 * This shouldn't be thrown unless GDQ changes the way they display their date modified.
 				 */
-				runs = new ArrayList<Run>();
+				runs = new Run[0];
 			}
 			
 			return runs;
@@ -101,7 +99,7 @@ public class SplashActivity extends Activity {
 			progressDialog.setMessage(values[0].message);
 		}
 
-		@Override protected void onPostExecute(List<Run> result) {
+		@Override protected void onPostExecute(Run[] result) {
 			// close the progress dialog
 			progressDialog.dismiss();
 			

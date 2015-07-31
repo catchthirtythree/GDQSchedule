@@ -16,7 +16,7 @@ public class GDQHelper extends SQLiteOpenHelper {
 	static final String DATABASE_NAME = TABLE_NAME + ".db";
 	static final int DATABASE_VERSION = 1;
 
-	private static final String DATABASE_CREATE = "create table " + TABLE_NAME + "(" 
+	private static final String DATABASE_CREATE = "create table if not exists " + TABLE_NAME + "(" 
 			+ COLUMN_ID 	+ " integer primary key autoincrement, " 
 			+ COLUMN_UPDATE + " timestamp not null);";
 

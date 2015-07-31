@@ -25,7 +25,19 @@ public class Run {
 	/**
 	 * Default empty constructor.
 	 */
-	public Run() {}
+	public Run() {
+		this.id = -1;
+		this.date = new Date();
+		this.game = "";
+		this.runners = "";
+		this.console = "";
+		this.estimate = "";
+		this.setup = "";
+		this.comments = "";
+		this.commentators = "";
+		this.prizes = "";
+		this.channels = "";
+	}
 	
 	/**
 	 * Format a table row from HTML.
