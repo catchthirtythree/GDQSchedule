@@ -140,14 +140,13 @@ public class GDQScraper {
 		runs = findListOfRuns();
 		
 		// Update the table.
-		// TODO: Update table by not deleting everything.
 		try (DBMapperAdapter mapper = new RunMapper(context)) {
-			// Truncate the table.
-			((RunMapper) mapper).truncateTable();
-			
 			// Insert runs into table.
 			for (Run run : runs) {
-				((RunMapper) mapper).insert(run);
+				int count = ((RunMapper) mapper).update(run);
+				if (count == 0) {
+					((RunMapper) mapper).insert(run);
+				}
 			}
 		} catch (Exception e) { 
 			/* Autocloseable requires a catch. */ 

@@ -133,6 +133,7 @@ public class Util {
 		HttpURLConnection connection = (HttpURLConnection) new URL(URL).openConnection();
 		connection.setRequestMethod("HEAD");
 		connection.setConnectTimeout(timeout);
+		connection.setReadTimeout(timeout);
 		connection.connect();
 		int responseCode = connection.getResponseCode();
 		return responseCode == 200;
