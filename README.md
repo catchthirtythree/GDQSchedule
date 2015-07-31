@@ -23,7 +23,7 @@ Scrapes the GDQ Schedule page (https://gamesdonequick.com/schedule) and makes an
 3. Allow unknown sources in Security ("Allow this installation only" recommended).
 4. Install the app.
 5. Have an internet connection to acquire the initial list.
-6. Enjoy.
+6. Enjoy GDQ for as long as it goes on for.
 
 ## Screenshots
 ![Previous Runs Fragment](http://i.imgur.com/ppY1Jt9.png "Previous Runs Fragment")
