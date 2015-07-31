@@ -18,6 +18,7 @@ Scrapes the GDQ Schedule page (https://gamesdonequick.com/schedule) and makes an
 - App/action bar styling
 
 ## Installation
+1. ![Download the APK](https://github.com/catchthirtythree/GDQSchedule/releases/tag/v1.0) on your device
 
 ## Screenshots
 ![Previous Runs Fragment](http://i.imgur.com/ppY1Jt9.png "Previous Runs Fragment")
