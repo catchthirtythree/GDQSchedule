@@ -3,7 +3,7 @@
 Scrapes the GDQ Schedule page (https://gamesdonequick.com/schedule) and makes an okay looking table out of it.
 
 ## Bugs:
-- Doesn't work offline (OutOfMemory errors during SplashActivity)
+- ~~Doesn't work offline (OutOfMemory errors during SplashActivity)~~
 - Sometimes reverses the order of the run lists
 
 ## To-do:
@@ -12,7 +12,7 @@ Scrapes the GDQ Schedule page (https://gamesdonequick.com/schedule) and makes an
 - Settings page
 - Links to relevant websites
 - Links to twitch vods?
-- Remove the lazy truncate table and find a better way to update the table
+- ~~Remove the lazy truncate table and find a better way to update the table~~
 - Searching
 - Better font for action bar
 - App/action bar styling
