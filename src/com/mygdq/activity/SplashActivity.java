@@ -60,25 +60,19 @@ public class SplashActivity extends Activity {
 			Run[] runs = null;
 			
 			try {
-				synchronized (this) {
-					// Check if the phone has a network connection.
-					// TODO: Allow the user to specify whether this should work on mobile or wifi, etc...
-					publishProgress(Progress.NETWORK_CHECK);
-					if (Util.testNetworkConnection(2000)
-							&& Util.haveNetworkConnection(SplashActivity.this, Util.NetworkType.MOBILE) 
-							|| Util.haveNetworkConnection(SplashActivity.this, Util.NetworkType.WIFI)) {
-						// Scrape the website.
-						publishProgress(Progress.SCRAPING);
-						GDQScraper.scrape(SplashActivity.this);
+				// Check if the phone has a network connection.
+				// TODO: Allow the user to specify whether this should work on mobile or wifi, etc...
+				publishProgress(Progress.NETWORK_CHECK);
+				if (Util.testNetworkConnection(2000)
+						&& Util.haveNetworkConnection(SplashActivity.this, Util.NetworkType.MOBILE) 
+						|| Util.haveNetworkConnection(SplashActivity.this, Util.NetworkType.WIFI)) {
+					// Scrape the website.
+					publishProgress(Progress.SCRAPING);
+					GDQScraper.scrape(SplashActivity.this);
 
-						// Update the database.
-						publishProgress(Progress.UPDATING_DATABASE);
-						GDQScraper.updateDatabase(SplashActivity.this);
-					}
-					
-					// Retrieve the list of runs.
-					publishProgress(Progress.RETRIEVING_RUNS);
-					runs = GDQScraper.getRuns(SplashActivity.this);
+					// Update the database.
+					publishProgress(Progress.UPDATING_DATABASE);
+					GDQScraper.updateDatabase(SplashActivity.this);
 				}
 			} catch (IOException | ParseException e) {
 				/* IOException:
@@ -88,7 +82,10 @@ public class SplashActivity extends Activity {
 				 * ParseException:
 				 * This shouldn't be thrown unless GDQ changes the way they display their date modified.
 				 */
-				runs = new Run[0];
+			} finally {
+				// Retrieve the list of runs.
+				publishProgress(Progress.RETRIEVING_RUNS);
+				runs = GDQScraper.getRuns(SplashActivity.this);
 			}
 			
 			return runs;
