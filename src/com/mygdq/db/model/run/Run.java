@@ -57,6 +57,19 @@ public class Run {
 		this.channels = Arrays.toString(cells.get(9).text().split(", "));
 	}
 	
+	public void setRun(Run run) {
+		this.date = run.getDate();
+		this.game = run.getGame();
+		this.runners = run.getRunners();
+		this.console = run.getConsole();
+		this.estimate = run.getEstimate();
+		this.setup = run.getSetup();
+		this.comments = run.getComments();
+		this.commentators = run.getCommentators();
+		this.prizes = run.getPrizes();
+		this.channels = run.getChannels();
+	}
+	
 	public long getId() {
 		return id;
 	}

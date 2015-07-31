@@ -142,11 +142,20 @@ public class GDQScraper {
 		
 		// Update the table.
 		try (DBMapperAdapter mapper = new RunMapper(context)) {
-			// Insert runs into table.
-			for (Run run : runs) {
-				int count = ((RunMapper) mapper).update(run);
-				if (count == 0) {
-					((RunMapper) mapper).insert(run);
+			// Get the list of old runs.
+			Run[] oldRuns = ((RunMapper) mapper).findAll();
+			
+			for (int i = 0; i < runs.length; ++i) {
+				// If we're still in range for the old runs, update the old runs in order.
+				// Otherwise, add all new / out of range runs.
+				// This keep things in a certain order.
+				if (i < oldRuns.length) {
+					Run oldRun = new Run();
+					oldRun.setRun(runs[i]);
+					
+					((RunMapper) mapper).update(oldRun);
+				} else {
+					((RunMapper) mapper).insert(runs[i]);
 				}
 			}
 		} catch (Exception e) { 
