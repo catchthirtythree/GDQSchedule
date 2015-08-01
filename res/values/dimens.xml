@@ -13,4 +13,6 @@
     
     <dimen name="row_medium_padding_size">2dp</dimen>
     <dimen name="row_large_padding_size">5dp</dimen>
+    
+    <dimen name="row_text_marginLeft">3dp</dimen>
 </resources>
