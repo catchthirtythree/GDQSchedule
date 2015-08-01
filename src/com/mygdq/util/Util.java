@@ -12,6 +12,8 @@ import java.nio.charset.Charset;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.TimeZone;
 
 import android.content.Context;
@@ -30,6 +32,24 @@ public class Util {
 	 */
 	private static final String URL = "https://gamesdonequick.com/schedule";
 	
+	/**
+	 * Typeface singleton manager to avoid memory leaks.
+	 *  
+	 * @author Michael
+	 */
+	public static class TypefaceSingleton {
+		private static Map<String, Typeface> instances = new HashMap<String, Typeface>();
+		private TypefaceSingleton() {}
+		
+		public static Typeface instance(Context context, String font) {
+			if (!instances.containsKey(font)) {
+				instances.put(font, Typeface.createFromAsset(context.getAssets(), font));
+			}
+			
+			return instances.get(font);
+		}
+	}
+
 	/**
 	 * Get the month from a date.
 	 * @param date
@@ -134,7 +154,7 @@ public class Util {
 			e.printStackTrace();
 		}
 	}
-
+	
 	/**
 	 * Test a connection by making an http request with the website.
 	 * @param timeout

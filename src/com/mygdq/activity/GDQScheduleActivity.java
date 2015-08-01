@@ -18,7 +18,6 @@ import com.mygdq.R;
 import com.mygdq.activity.fragments.PlaceholderFragment;
 import com.mygdq.activity.fragments.PreviousRunsFragment;
 import com.mygdq.activity.fragments.UpcomingRunsFragment;
-import com.mygdq.util.Util;
 
 /**
  * Main ViewPager for the app.
@@ -51,7 +50,7 @@ import com.mygdq.util.Util;
 		setContentView(R.layout.activity_gdq);
 		
 		// Override the default font.
-		Util.setDefaultFont(this, "DEFAULT", "fonts/UBUNTU-REGULAR.TTF");
+		//Util.setDefaultFont(this, "DEFAULT", "fonts/UBUNTU-REGULAR.TTF");
 
 		// Set up the action bar.
 		final ActionBar actionBar = getSupportActionBar();

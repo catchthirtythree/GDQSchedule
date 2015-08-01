@@ -7,6 +7,7 @@ import java.util.Date;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -22,6 +23,7 @@ import com.mygdq.R;
 import com.mygdq.activity.GDQScheduleActivity;
 import com.mygdq.activity.model.GDQScraper;
 import com.mygdq.db.model.run.Run;
+import com.mygdq.util.Util.TypefaceSingleton;
 
 /**
  * Lazy adapter class.
@@ -64,6 +66,7 @@ public abstract class RunFragmentAdapter extends Fragment implements SwipeRefres
 		TextView tv = (TextView) dateView.findViewById(R.id.calendar_text);
 		tv.setTextColor(Color.WHITE);
 		tv.setText(df.format(date));
+		tv.setTypeface(TypefaceSingleton.instance(getActivity(), "fonts/UBUNTU-REGULAR.TTF"));
 		
 		return dateView;
 	}
@@ -77,6 +80,8 @@ public abstract class RunFragmentAdapter extends Fragment implements SwipeRefres
 	 * @return
 	 */
 	public View createRunRow(LayoutInflater inflater, ViewGroup container, int position, Run run) {
+		Typeface tf = TypefaceSingleton.instance(getActivity(), "fonts/UBUNTU-REGULAR.TTF");
+		
 		View runView = null;
 		if (position % 2 == 0) {
 			runView = inflater.inflate(R.layout.run_light, container, false);
@@ -87,12 +92,15 @@ public abstract class RunFragmentAdapter extends Fragment implements SwipeRefres
 		DateFormat df = DateFormat.getTimeInstance(DateFormat.SHORT);
 		TextView run_time = (TextView) runView.findViewById(R.id.run_time_text);
 		run_time.setText(df.format(run.getDate()));
+		run_time.setTypeface(tf);
 
 		TextView game_text = (TextView) runView.findViewById(R.id.run_game_text);
 		game_text.setText(run.getGame());
+		game_text.setTypeface(tf);
 
 		TextView runner_text = (TextView) runView.findViewById(R.id.run_runner_text);
 		runner_text.setText(run.getRunners());
+		runner_text.setTypeface(tf);
 
 		if (run.getCommentators().isEmpty()) {
 			TableRow couch_row = (TableRow) runView.findViewById(R.id.run_couch);
@@ -100,6 +108,7 @@ public abstract class RunFragmentAdapter extends Fragment implements SwipeRefres
 		} else {
 			TextView couch_text = (TextView) runView.findViewById(R.id.run_couch_text);
 			couch_text.setText(run.getCommentators());
+			couch_text.setTypeface(tf);
 		}
 		
 		return runView;
