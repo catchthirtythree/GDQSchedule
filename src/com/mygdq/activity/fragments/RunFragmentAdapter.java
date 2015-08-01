@@ -19,7 +19,7 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.mygdq.R;
-import com.mygdq.activity.GDQScheduleActivity;
+import com.mygdq.activity.ScheduleActivity;
 import com.mygdq.activity.model.GDQScraper;
 import com.mygdq.db.model.run.Run;
 import com.mygdq.util.Util.TypefaceSingleton;
@@ -131,7 +131,7 @@ public abstract class RunFragmentAdapter extends Fragment implements SwipeRefres
 		@Override protected void onPostExecute(Void result) {
 			// Start activity or redraw fragment.
 	        // Create an intent to send the user to the MyGdqActiity.
-			Intent intent = new Intent(getActivity(), GDQScheduleActivity.class);
+			Intent intent = new Intent(getActivity(), ScheduleActivity.class);
 			
 			// Fire the intent.
 			RunFragmentAdapter.this.startActivity(intent);

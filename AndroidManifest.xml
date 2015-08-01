@@ -30,7 +30,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.mygdq.activity.GDQScheduleActivity"
+            android:name="com.mygdq.activity.ScheduleActivity"
             android:label="@string/app_name" >
 		</activity>
     </application>

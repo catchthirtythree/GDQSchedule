@@ -24,7 +24,7 @@ import com.mygdq.activity.fragments.UpcomingRunsFragment;
  * 
  * @author Michael
  */
-@SuppressWarnings("deprecation") public class GDQScheduleActivity extends ActionBarActivity implements ActionBar.TabListener {
+@SuppressWarnings("deprecation") public class ScheduleActivity extends ActionBarActivity implements ActionBar.TabListener {
 	/**
 	 * The {@link ProgressDialog} that will tell the user the app is in progress of searching.
 	 */

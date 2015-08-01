@@ -101,7 +101,7 @@ public class SplashActivity extends Activity {
 			progressDialog.dismiss();
 			
 			// Create an intent to send the user to the MyGdqActiity.
-			Intent intent = new Intent(SplashActivity.this, GDQScheduleActivity.class);
+			Intent intent = new Intent(SplashActivity.this, ScheduleActivity.class);
 			
 			// Fire the intent.
 			SplashActivity.this.startActivity(intent);
