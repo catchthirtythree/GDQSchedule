@@ -110,18 +110,17 @@ public class Util {
 	 * @return
 	 */
 	public static boolean haveNetworkConnection(Context context, NetworkType ntype) {
-	    boolean haveConnectedWifi = false;
-	    boolean haveConnectedMobile = false;
+	    boolean haveConnection = false;
 
 	    ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
 	    NetworkInfo[] netInfo = cm.getAllNetworkInfo();
 	    for (NetworkInfo ni : netInfo) {
 	        if (ni.getTypeName().equalsIgnoreCase(ntype.name()))
 	            if (ni.isConnected())
-	                haveConnectedWifi = true;
+	            	haveConnection = true;
 	    } 
 	    
-	    return haveConnectedWifi || haveConnectedMobile;
+	    return haveConnection;
 	}
 	
 	/**
