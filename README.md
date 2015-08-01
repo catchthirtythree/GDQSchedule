@@ -4,7 +4,7 @@ Scrapes the GDQ Schedule page (https://gamesdonequick.com/schedule) and makes an
 
 ## Bugs:
 - ~~Doesn't work offline (OutOfMemory errors during SplashActivity)~~
-- Sometimes reverses the order of the run lists
+- Sometimes reverses the order of the run lists (reproduceable without a network connection by refreshing a fragment)
 
 ## To-do:
 - General run info table tweaks
