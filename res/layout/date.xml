@@ -18,6 +18,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="start|center_vertical"
-        android:textSize="@dimen/row_medium_text_size" />
+        android:text="Friday, July 31, 2015"
+        android:textSize="@dimen/row_medium_text_size"
+        android:textColor="#FFFFFF" />
 
 </TableRow>

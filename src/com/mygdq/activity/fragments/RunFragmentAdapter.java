@@ -6,7 +6,6 @@ import java.text.ParseException;
 import java.util.Date;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -64,7 +63,6 @@ public abstract class RunFragmentAdapter extends Fragment implements SwipeRefres
 		
 		DateFormat df = DateFormat.getDateInstance(DateFormat.FULL);
 		TextView tv = (TextView) dateView.findViewById(R.id.calendar_text);
-		tv.setTextColor(Color.WHITE);
 		tv.setText(df.format(date));
 		tv.setTypeface(TypefaceSingleton.instance(getActivity(), "fonts/UBUNTU-REGULAR.TTF"));
 		
