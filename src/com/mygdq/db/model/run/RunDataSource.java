@@ -61,7 +61,7 @@ public class RunDataSource extends DBDataSourceAdapter {
 		database.execSQL(TRUNCATE_TABLE);
 	}
 	
-	final String UPDATE = "UPDATE " + RunHelper.TABLE_NAME + " SET updated=?, game=?, runners=?, console=?, estimate=?, setup=?, comments=?, commentators=?, prizes=?, channels=? WHERE id=?;";
+	final String UPDATE = "UPDATE " + RunHelper.TABLE_NAME + " SET date=?, game=?, runners=?, console=?, estimate=?, setup=?, comments=?, commentators=?, prizes=?, channels=? WHERE id=?;";
 	public int update(long id, Date date, String game, String runners, String console, String estimate, 
 			String setup, String comments, String commentators, String prizes, String channels) {
 		SQLiteStatement stmt = database.compileStatement(UPDATE);

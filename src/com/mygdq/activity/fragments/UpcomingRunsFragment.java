@@ -64,16 +64,18 @@ public class UpcomingRunsFragment extends RunFragmentAdapter {
 			cal.add(Calendar.SECOND, Integer.parseInt(time[2]));
 			Date add = cal.getTime();
 			
-			// If now is greater than or in the middle of a run, add the run.
 			if (now.before(runDate) || now.before(add) && now.after(runDate)) {
-				if (calendar == null) {
-					tl.addView(createDateRow(inflater, container, calendar = new Date()), new TableLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
-				} else if (Util.getDayFrom(calendar) != Util.getDayFrom(runDate)) {
+				if (calendar == null || Util.getDayFrom(calendar) != Util.getDayFrom(runDate)) {
 					tl.addView(createDateRow(inflater, container, calendar = runDate), new TableLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
 				}
 				
 				tl.addView(createRunRow(inflater, container, index++, run), new TableLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
 			}
+		}
+		
+		if (tl.getChildCount() == 0) {
+			// Come here if gdq is over basically.
+			tl.addView(inflater.inflate(R.layout.finished, container, false));
 		}
 	
 		return rootView;

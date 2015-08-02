@@ -1,0 +1,61 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/finished_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+    
+    <LinearLayout
+	    android:id="@+id/finished_header"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:background="@drawable/runrow_dark"
+	    android:orientation="vertical" >
+	    
+	    <TableRow
+	        android:id="@+id/finished_header_row"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content" >
+	
+		    <TextView
+		        android:id="@+id/finished_header_row_text"
+		        android:layout_width="match_parent"
+		        android:layout_height="match_parent"
+		        android:layout_marginLeft="@dimen/row_text_marginLeft"
+		        android:layout_marginStart="@dimen/row_text_marginLeft"
+		        android:gravity="center"
+		        android:text="SGDQ 2015 is over!"
+		        android:textColor="#FFFFFF"
+		        android:textSize="@dimen/row_large_text_size" />
+	 
+		</TableRow>
+	    
+	</LinearLayout>
+	
+    <LinearLayout
+	    android:id="@+id/finished_body"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:background="@drawable/runrow_light"
+	    android:orientation="vertical" >
+	    
+	    <TableRow
+	        android:id="@+id/finished_body_row"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content" >
+	
+		    <TextView
+		        android:id="@+id/finished_body_row_text1"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginLeft="@dimen/row_text_marginLeft"
+		        android:layout_marginStart="@dimen/row_text_marginLeft"
+		        android:gravity="center"
+		        android:text="The upcoming runs tab will stay as-is until then. I will try to find a nice way to link people to videos of each of the runs.\n\nHope to see you next during AGDQ 2016!"
+		        android:textColor="#000000"
+		        android:textSize="@dimen/row_medium_text_size" />
+	 
+		</TableRow>
+	    
+	</LinearLayout>
+    
+</LinearLayout>

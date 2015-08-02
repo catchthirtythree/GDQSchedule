@@ -57,9 +57,7 @@ public class PreviousRunsFragment extends RunFragmentAdapter {
 			Date runDate = run.getDate();
 			
 			if (now.after(runDate)) {
-				if (calendar == null) {
-					tl.addView(createDateRow(inflater, container, calendar = new Date()), new TableLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
-				} else if (Util.getDayFrom(calendar) != Util.getDayFrom(runDate)) {
+				if (calendar == null || Util.getDayFrom(calendar) != Util.getDayFrom(runDate)) {
 					tl.addView(createDateRow(inflater, container, calendar = runDate), new TableLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
 				}
 				
