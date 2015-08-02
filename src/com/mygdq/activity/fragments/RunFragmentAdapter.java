@@ -69,6 +69,12 @@ public abstract class RunFragmentAdapter extends Fragment implements SwipeRefres
 		return dateView;
 	}
 	
+	/**
+	 * Creates the "sgdq is finished" row.
+	 * @param inflater
+	 * @param container
+	 * @return
+	 */
 	public View createFinishedRow(LayoutInflater inflater, ViewGroup container) {
 		Typeface tf = TypefaceSingleton.instance(getActivity(), "fonts/UBUNTU-REGULAR.TTF");
 		
