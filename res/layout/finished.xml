@@ -50,7 +50,7 @@
 		        android:layout_marginLeft="@dimen/row_text_marginLeft"
 		        android:layout_marginStart="@dimen/row_text_marginLeft"
 		        android:gravity="center"
-		        android:text="The previous runs tab will stay as-is until then. I will try to find a nice way to link people to videos of each of the runs.\n\nHope to see you next during AGDQ 2016!"
+		        android:text="The previous runs tab will stay as-is until then. I will try to find a nice way to link people to videos of each of the runs.\n\nHope to see you next at AGDQ 2016!\n\nHappy speedrunning!"
 		        android:textColor="#000000"
 		        android:textSize="@dimen/row_medium_text_size" />
 	 
