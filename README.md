@@ -2,14 +2,16 @@
 ## GDQ Schedule for Android
 Scrapes the GDQ Schedule page (https://gamesdonequick.com/schedule) and makes an okay looking table out of it.
 
+I will continue this project during AGDQ 2016. There's a very good possibility that it will be rewritten to some extent. Happy speedrunning until then!
+
 ## Bugs:
 - ~~Doesn't work offline (OutOfMemory errors during SplashActivity)~~
 - Sometimes reverses the order of the run lists (reproduceable without a network connection by refreshing a fragment)
 
 ## To-do:
 - General run info table tweaks
-- Run reminder (alarm)
-- Settings page
+- Run reminder (alarm + notifications)
+- Settings page (12/24 hour, alarm settings, notification settings, 
 - Links to relevant websites
 - Links to twitch vods?
 - ~~Remove the lazy truncate table and find a better way to update the table~~
