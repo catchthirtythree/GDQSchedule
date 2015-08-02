@@ -69,6 +69,20 @@ public abstract class RunFragmentAdapter extends Fragment implements SwipeRefres
 		return dateView;
 	}
 	
+	public View createFinishedRow(LayoutInflater inflater, ViewGroup container) {
+		Typeface tf = TypefaceSingleton.instance(getActivity(), "fonts/UBUNTU-REGULAR.TTF");
+		
+		View finshedView = inflater.inflate(R.layout.finished, container, false);
+		
+		TextView finished_header_row_text = (TextView) finshedView.findViewById(R.id.finished_header_row_text);
+		finished_header_row_text.setTypeface(tf);
+		
+		TextView finished_body_row_text1 = (TextView) finshedView.findViewById(R.id.finished_body_row_text1);
+		finished_body_row_text1.setTypeface(tf);
+		
+		return finshedView;
+	}
+	
 	/**
 	 * Create a row for runs.
 	 * @param inflater

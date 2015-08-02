@@ -75,7 +75,7 @@ public class UpcomingRunsFragment extends RunFragmentAdapter {
 		
 		if (tl.getChildCount() == 0) {
 			// Come here if gdq is over basically.
-			tl.addView(inflater.inflate(R.layout.finished, container, false));
+			tl.addView(createFinishedRow(inflater, container));
 		}
 	
 		return rootView;
