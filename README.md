@@ -1,5 +1,6 @@
-# GDQSchedule
-## GDQ Schedule for Android
+######Development postponed until AGDQ2016 schedule is out.
+
+## GDQSchedule for Android 
 Scrapes the GDQ Schedule page (https://gamesdonequick.com/schedule) and makes an okay looking table out of it.
 
 I will continue this project during AGDQ 2016. There's a very good possibility that it will be rewritten to some extent. It's been a good learning experience. Happy speedrunning until then!
