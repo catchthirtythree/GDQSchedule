@@ -10,10 +10,6 @@ package com.mygdq.db.model;
 public abstract class DBMapperAdapter implements AutoCloseable {
 	protected DBDataSourceAdapter database;
 	
-	/**
-	 * 
-	 * @param database
-	 */
 	public DBMapperAdapter(DBDataSourceAdapter database) {
 		this.database = database;
 		this.database.open();
