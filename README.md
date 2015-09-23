@@ -1,9 +1,7 @@
-######Development postponed until AGDQ2016 schedule is out.
+######Development postponed until AGDQ2016 schedule is out. Will probably be rewritten. It's been a good learning experience. Happy speedrunning until then!
 
 ## GDQSchedule for Android 
 Scrapes the GDQ Schedule page (https://gamesdonequick.com/schedule) and makes an okay looking table out of it.
-
-I will continue this project during AGDQ 2016. There's a very good possibility that it will be rewritten to some extent. It's been a good learning experience. Happy speedrunning until then!
 
 ## Bugs:
 - ~~Doesn't work offline (OutOfMemory errors during SplashActivity)~~
