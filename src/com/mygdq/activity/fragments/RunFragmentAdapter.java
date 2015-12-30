@@ -120,14 +120,8 @@ public abstract class RunFragmentAdapter extends Fragment implements SwipeRefres
 		runner_text.setText(run.getRunners());
 		runner_text.setTypeface(tf);
 
-		if (run.getCommentators().isEmpty()) {
-			TableRow couch_row = (TableRow) runView.findViewById(R.id.run_couch);
-			((ViewGroup) couch_row.getParent()).removeView(couch_row);
-		} else {
-			TextView couch_text = (TextView) runView.findViewById(R.id.run_couch_text);
-			couch_text.setText(run.getCommentators());
-			couch_text.setTypeface(tf);
-		}
+		TableRow couch_row = (TableRow) runView.findViewById(R.id.run_couch);
+		((ViewGroup) couch_row.getParent()).removeView(couch_row);
 		
 		return runView;
 	}

@@ -51,13 +51,10 @@ public class RunMapper extends DBMapperAdapter {
 				run.setDate(DBUtil.loadDate(cursor, 1));
 				run.setGame(cursor.getString(2));
 				run.setRunners(cursor.getString(3));
-				run.setConsole(cursor.getString(4));
-				run.setEstimate(cursor.getString(5));
+				run.setEstimate(cursor.getString(4));
+				run.setCategory(cursor.getString(5));
 				run.setSetup(cursor.getString(6));
-				run.setComments(cursor.getString(7));
-				run.setCommentators(cursor.getString(8));
-				run.setPrizes(cursor.getString(9));
-				run.setChannels(cursor.getString(10));
+				run.setDescription(cursor.getString(7));
 				cursor.moveToNext();
 				
 				runs[index++] = run;
@@ -85,13 +82,10 @@ public class RunMapper extends DBMapperAdapter {
 				run.setDate(DBUtil.loadDate(cursor, 1));
 				run.setGame(cursor.getString(2));
 				run.setRunners(cursor.getString(3));
-				run.setConsole(cursor.getString(4));
-				run.setEstimate(cursor.getString(5));
+				run.setEstimate(cursor.getString(4));
+				run.setCategory(cursor.getString(5));
 				run.setSetup(cursor.getString(6));
-				run.setComments(cursor.getString(7));
-				run.setCommentators(cursor.getString(8));
-				run.setPrizes(cursor.getString(9));
-				run.setChannels(cursor.getString(10));
+				run.setDescription(cursor.getString(7));
 				
 				runs.add(run);
 			}
@@ -107,8 +101,8 @@ public class RunMapper extends DBMapperAdapter {
 	 */
 	public long insert(Run run) {
 		return ((RunDataSource) database).insert(run.getDate(), run.getGame(), run.getRunners(), 
-				run.getConsole(), run.getEstimate(), run.getSetup(), run.getComments(), 
-				run.getCommentators(), run.getPrizes(), run.getChannels());
+				run.getEstimate(), run.getCategory(), run.getSetup(),
+				run.getDescription());
 	}
 	
 	/**
@@ -123,7 +117,7 @@ public class RunMapper extends DBMapperAdapter {
 	 */
 	public int update(Run run) {
 		return ((RunDataSource) database).update(run.getId(), run.getDate(), run.getGame(), 
-				run.getRunners(), run.getConsole(), run.getEstimate(), run.getSetup(), 
-				run.getComments(), run.getCommentators(), run.getPrizes(), run.getChannels());
+				run.getRunners(), run.getEstimate(), run.getCategory(), run.getSetup(),
+				run.getDescription());
 	}
 }

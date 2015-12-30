@@ -41,19 +41,16 @@ public class RunDataSource extends DBDataSourceAdapter {
 		return database.rawQuery(FIND_BY_STRING, new String[] { search });
 	}
 	
-	public long insert(Date date, String game, String runners, String console, String estimate, 
-			String setup, String comments, String commentators, String prizes, String channels) {
+	public long insert(Date date, String game, String runners, String estimate,
+			String category, String setup, String description) {
 		ContentValues values = new ContentValues();
 		values.put(RunHelper.COLUMN_DATE, DBUtil.persistDate(date));
 		values.put(RunHelper.COLUMN_GAME, game);
 		values.put(RunHelper.COLUMN_RUNNERS, runners);
-		values.put(RunHelper.COLUMN_CONSOLE, console);
 		values.put(RunHelper.COLUMN_ESTIMATE, estimate);
+		values.put(RunHelper.COLUMN_CATEGORY, category);
 		values.put(RunHelper.COLUMN_SETUP, setup);
-		values.put(RunHelper.COLUMN_COMMENTS, comments);
-		values.put(RunHelper.COLUMN_COMMENTATORS, commentators);
-		values.put(RunHelper.COLUMN_PRIZES, prizes);
-		values.put(RunHelper.COLUMN_CHANNELS, channels);
+		values.put(RunHelper.COLUMN_DESCRIPTION, description);
 		return database.insert(RunHelper.TABLE_NAME, null, values);
 	}
 	
@@ -61,21 +58,18 @@ public class RunDataSource extends DBDataSourceAdapter {
 		database.execSQL(TRUNCATE_TABLE);
 	}
 	
-	final String UPDATE = "UPDATE " + RunHelper.TABLE_NAME + " SET date=?, game=?, runners=?, console=?, estimate=?, setup=?, comments=?, commentators=?, prizes=?, channels=? WHERE id=?;";
-	public int update(long id, Date date, String game, String runners, String console, String estimate, 
-			String setup, String comments, String commentators, String prizes, String channels) {
+	final String UPDATE = "UPDATE " + RunHelper.TABLE_NAME + " SET date=?, game=?, runners=?, estimate=?, category=?, setup=?, description=? WHERE id=?;";
+	public int update(long id, Date date, String game, String runners, String estimate,
+					  String category, String setup, String description) {
 		SQLiteStatement stmt = database.compileStatement(UPDATE);
 		stmt.bindLong(1, DBUtil.persistDate(date));
 		stmt.bindString(2, game);
 		stmt.bindString(3, runners);
-		stmt.bindString(4, console);
-		stmt.bindString(5, estimate);
+		stmt.bindString(4, estimate);
+		stmt.bindString(5, category);
 		stmt.bindString(6, setup);
-		stmt.bindString(7, comments);
-		stmt.bindString(8, commentators);
-		stmt.bindString(9, prizes);
-		stmt.bindString(10, channels);
-		stmt.bindLong(11, id);
+		stmt.bindString(7, description);
+		stmt.bindLong(8, id);
 		
 		int count = stmt.executeUpdateDelete();
 		stmt.close();

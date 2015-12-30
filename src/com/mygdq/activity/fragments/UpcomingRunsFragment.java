@@ -1,11 +1,13 @@
 package com.mygdq.activity.fragments;
 
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 
 import android.app.ActionBar.LayoutParams;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,6 +59,7 @@ public class UpcomingRunsFragment extends RunFragmentAdapter {
 			Date runDate = run.getDate();
 			
 			String[] time = run.getEstimate().split(":");
+			Log.d("Run estimate", run + ", " + Arrays.toString(time));
 			Calendar cal = Calendar.getInstance();
 			cal.setTime(runDate);
 			cal.add(Calendar.HOUR, Integer.parseInt(time[0]));
