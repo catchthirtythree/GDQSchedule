@@ -1,4 +1,4 @@
-######Development postponed until AGDQ2016 schedule is out. Will probably be rewritten. It's been a good learning experience. Happy speedrunning until then!
+######Development postponed until SGDQ2016 schedule is out. Will probably be rewritten. It's been a good learning experience. Happy speedrunning until then!
 
 ## GDQSchedule for Android 
 Scrapes the GDQ Schedule page (https://gamesdonequick.com/schedule) and makes an okay looking table out of it.
