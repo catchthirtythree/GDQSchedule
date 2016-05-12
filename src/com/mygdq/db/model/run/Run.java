@@ -23,7 +23,7 @@ public class Run {
 
 	private long id;
 	private Date date;
-	private String game, runners, estimate, category, setup, description;
+	private String game, runners, estimate, category, setup;
 
 	/**
 	 * Default empty constructor.
@@ -36,7 +36,6 @@ public class Run {
 		this.estimate = "";
 		this.category = "";
 		this.setup = "";
-		this.description = "";
 	}
 
 	/**
@@ -51,7 +50,6 @@ public class Run {
 		setEstimate(cells.get(3));
 		setCategory(cells.get(4));
 		setSetup(cells.get(5));
-		setDescription(cells.get(6));
 	}
 
 	/**
@@ -65,7 +63,6 @@ public class Run {
 		this.estimate = run.getEstimate();
 		this.category = run.getCategory();
 		this.setup = run.getSetup();
-		this.description = run.getDescription();
 	}
 
 	public long getId() {
@@ -147,21 +144,9 @@ public class Run {
 	public void setSetup(String setup) {
 		this.setup = setup;
 	}
-
-	public String getDescription() {
-		return description;
-	}
-	
-	public void setDescription(Element description) {
-		this.description = description.text();
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
 	
 	@Override
 	public String toString() {
-		return date + ", " + game + ", " + runners + ", " + estimate + ", " + category + ", " + setup + ", " + description;
+		return date + ", " + game + ", " + runners + ", " + estimate + ", " + category + ", " + setup;
 	}
 }

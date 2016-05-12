@@ -54,7 +54,6 @@ public class RunMapper extends DBMapperAdapter {
 				run.setEstimate(cursor.getString(4));
 				run.setCategory(cursor.getString(5));
 				run.setSetup(cursor.getString(6));
-				run.setDescription(cursor.getString(7));
 				cursor.moveToNext();
 				
 				runs[index++] = run;
@@ -85,7 +84,6 @@ public class RunMapper extends DBMapperAdapter {
 				run.setEstimate(cursor.getString(4));
 				run.setCategory(cursor.getString(5));
 				run.setSetup(cursor.getString(6));
-				run.setDescription(cursor.getString(7));
 				
 				runs.add(run);
 			}
@@ -101,8 +99,7 @@ public class RunMapper extends DBMapperAdapter {
 	 */
 	public long insert(Run run) {
 		return ((RunDataSource) database).insert(run.getDate(), run.getGame(), run.getRunners(), 
-				run.getEstimate(), run.getCategory(), run.getSetup(),
-				run.getDescription());
+				run.getEstimate(), run.getCategory(), run.getSetup());
 	}
 	
 	/**
@@ -117,7 +114,6 @@ public class RunMapper extends DBMapperAdapter {
 	 */
 	public int update(Run run) {
 		return ((RunDataSource) database).update(run.getId(), run.getDate(), run.getGame(), 
-				run.getRunners(), run.getEstimate(), run.getCategory(), run.getSetup(),
-				run.getDescription());
+				run.getRunners(), run.getEstimate(), run.getCategory(), run.getSetup());
 	}
 }

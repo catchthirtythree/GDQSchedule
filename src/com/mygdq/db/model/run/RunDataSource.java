@@ -42,7 +42,7 @@ public class RunDataSource extends DBDataSourceAdapter {
 	}
 	
 	public long insert(Date date, String game, String runners, String estimate,
-			String category, String setup, String description) {
+			String category, String setup) {
 		ContentValues values = new ContentValues();
 		values.put(RunHelper.COLUMN_DATE, DBUtil.persistDate(date));
 		values.put(RunHelper.COLUMN_GAME, game);
@@ -50,7 +50,6 @@ public class RunDataSource extends DBDataSourceAdapter {
 		values.put(RunHelper.COLUMN_ESTIMATE, estimate);
 		values.put(RunHelper.COLUMN_CATEGORY, category);
 		values.put(RunHelper.COLUMN_SETUP, setup);
-		values.put(RunHelper.COLUMN_DESCRIPTION, description);
 		return database.insert(RunHelper.TABLE_NAME, null, values);
 	}
 	
@@ -58,9 +57,9 @@ public class RunDataSource extends DBDataSourceAdapter {
 		database.execSQL(TRUNCATE_TABLE);
 	}
 	
-	final String UPDATE = "UPDATE " + RunHelper.TABLE_NAME + " SET date=?, game=?, runners=?, estimate=?, category=?, setup=?, description=? WHERE id=?;";
+	final String UPDATE = "UPDATE " + RunHelper.TABLE_NAME + " SET date=?, game=?, runners=?, estimate=?, category=?, setup=? WHERE id=?;";
 	public int update(long id, Date date, String game, String runners, String estimate,
-					  String category, String setup, String description) {
+					  String category, String setup) {
 		SQLiteStatement stmt = database.compileStatement(UPDATE);
 		stmt.bindLong(1, DBUtil.persistDate(date));
 		stmt.bindString(2, game);
@@ -68,8 +67,7 @@ public class RunDataSource extends DBDataSourceAdapter {
 		stmt.bindString(4, estimate);
 		stmt.bindString(5, category);
 		stmt.bindString(6, setup);
-		stmt.bindString(7, description);
-		stmt.bindLong(8, id);
+		stmt.bindLong(7, id);
 		
 		int count = stmt.executeUpdateDelete();
 		stmt.close();

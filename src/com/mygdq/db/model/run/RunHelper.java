@@ -16,8 +16,7 @@ public class RunHelper extends SQLiteOpenHelper {
 	static final String COLUMN_ESTIMATE = "estimate";
 	static final String COLUMN_CATEGORY = "category";
 	static final String COLUMN_SETUP = "setup";
-	static final String COLUMN_DESCRIPTION = "description";
-	static final String COLUMNS = "id, date, game, runners, estimate, category, setup, description";
+	static final String COLUMNS = "id, date, game, runners, estimate, category, setup";
 
 	static final String DATABASE_NAME = TABLE_NAME + ".db";
 	static final int DATABASE_VERSION = 1;
@@ -29,8 +28,7 @@ public class RunHelper extends SQLiteOpenHelper {
 			+ COLUMN_RUNNERS + " char(255) not null, "
 			+ COLUMN_ESTIMATE + " char(255) not null, "
 			+ COLUMN_CATEGORY + " char(255), "
-			+ COLUMN_SETUP + " char(255) not null, "
-			+ COLUMN_DESCRIPTION + " char(255));";
+			+ COLUMN_SETUP + " char(255) not null);";
 
 	public RunHelper(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);

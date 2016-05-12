@@ -60,8 +60,8 @@ public class GDQScraper {
 			Elements tds = rows.get(i).getElementsByTag("td");
 			
 			// Silly fix for now.
-			if (tds.size() != 6) {
-				while (tds.size() < 7) {
+			if (tds.size() < 6) {
+				while (tds.size() != 6) {
 					tds.add(new Element(Tag.valueOf("td"), ""));
 				}
 			}
